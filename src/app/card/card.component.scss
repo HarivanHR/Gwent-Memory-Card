@@ -1,0 +1,92 @@
+:host([disabled]){
+  pointer-events: none;
+}
+
+:host {
+  --front-image: "";
+}
+
+.myCard {
+  padding: 0;
+  box-shadow: none;
+  position: relative;
+  //rotation
+  //-webkit-transform-style: preserve-3d;
+  //transform-style: preserve-3d;
+  //-webkit-transition: all 600ms;
+  //transition: all 600ms;
+  //z-index: 20;
+}
+
+.mat-card-image:first-child {
+  margin: 0
+}
+
+
+
+.card-image {
+  &.front {
+    background-image: var(--front-image);
+    animation: flip-card 1s ease-out forwards  , change-card-back-to-front 1s ease-in forwards;
+
+  }
+  border-radius: 10px;
+  height: 100px;
+  width: 75px;
+  position: relative;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  background-image: url(../../assets/BackCard.jpg);
+
+}
+
+
+//.myCard.cardBack {
+//  -webkit-transform: rotateY(180deg);
+//  transform: rotateY(180deg);
+//}
+//
+//.myCard.cardFront{
+//  transform: rotateY(180deg);
+//  -webkit-transform: rotateY(180deg);
+//}
+
+@keyframes
+flip-card {
+    0% {
+        transform: rotateY(0deg);
+    }
+
+    50%{
+      transform: rotateY(90deg);
+    }
+
+    100%{
+      transform: rotateY(0deg);
+    }
+}
+@keyframes
+change-card-back-to-front {
+    0% {
+      background-image: url(../../assets/BackCard.jpg);
+    }
+
+    50% {
+      background-image: url(../../assets/BackCard.jpg);
+    }
+
+    51% {
+      background-image: var(--front-image);
+    }
+
+    100% {
+      background-image: var(--front-image);
+
+    }
+
+
+}
+
+

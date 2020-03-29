@@ -1,0 +1,10 @@
+<ng-container *ngIf="(hiddenAmount$)  | async  else ElseBlock">
+    <app-card (click)="setCard(card)"
+              *ngFor="let card of cards$ | async ; trackBy: tbFind"
+              [card]="card">
+    </app-card>
+</ng-container>
+
+<ng-template #ElseBlock>
+  <div>You finished the game!</div>
+</ng-template>
